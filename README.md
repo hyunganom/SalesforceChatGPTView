@@ -43,3 +43,5 @@
 	1.	ChatGPT로 사용자의 메시지를 전송하고, 주기적으로 메시지를 새로고침하여 실시간 채팅을 구현.
 	2.	메시지 전송 후 스크롤을 최신 메시지로 이동.
 	3.	에러 발생 시 토스트 알림을 통해 사용자에게 알림.
+ ## 중계 서버 깃허브 주소
+https://github.com/hyunganom/salesforce-middleware-server.git
