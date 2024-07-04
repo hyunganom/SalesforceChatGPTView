@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="Chat">
+        <div class="slds-m-around_medium slds-grid slds-grid_vertical slds-grid_align-end" style="height: 600px;">
+            <!-- 스크롤 가능 영역 시작 -->
+            <section role="log" class="slds-chat slds-grow slds-scrollable_y" style="height: 20rem; width: 100%;" tabindex="0" data-id="chatContainer">
+                <ul class="slds-chat-list">
+                    <template if:true={chatMessages}>
+                        <template for:each={chatMessages} for:item="chat">
+                            <template if:true={chat.receive__c}>
+                                <li key={chat.Id} class="slds-chat-listitem slds-chat-listitem_inbound">
+                                    <div class="slds-chat-message">
+                                        <div class="slds-chat-message__body">
+                                            <div class="slds-chat-message__text slds-chat-message__text_inbound">
+                                                <span>{chat.receive__c}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </template>
+                            <template if:true={chat.send__c}>
+                                <li key={chat.Id} class="slds-chat-listitem slds-chat-listitem_outbound">
+                                    <div class="slds-chat-message">
+                                        <div class="slds-chat-message__body">
+                                            <div class="slds-chat-message__text slds-chat-message__text_outbound-agent">
+                                                <span>{chat.send__c}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </template>
+                        </template>
+                    </template>
+                </ul>
+            </section>
+            <!-- 스크롤 가능 영역 끝 -->
+            <div class="slds-m-top_small slds-grid slds-grid_align-center slds-grid_vertical-align-center chat-input-container" style="width: 100%;">
+                <div class="slds-form-element slds-col slds-size_3-of-4">
+                    <div class="slds-form-element__control">
+                        <input 
+                            type="text" 
+                            placeholder="Chat GPT에게 질문을 입력하세요." 
+                            class="slds-input chat-input" 
+                            value={userInput}
+                            oninput={handleInputChange}
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-m-left_x-small">
+                    <button 
+                        class="slds-button slds-button_brand "
+                        onclick={handleSend}
+                    >
+                        전송
+                    </button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
