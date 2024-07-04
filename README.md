@@ -26,13 +26,13 @@
 
  ## 구성 요소
  	1.	Apex 클래스
-		•	ChatGPTController: 메시지 검색 및 전송을 처리합니다.
-		•	SendRabbitMq: RabbitMQ로 메시지를 전송합니다.
+		•ChatGPTController: 메시지 검색 및 전송을 처리합니다.
+		•SendRabbitMq: RabbitMQ로 메시지를 전송합니다.
 	2.	Apex 트리거
-		•	ChatGPTEventTrigger: 이벤트를 수신하고 Salesforce에 채팅 메시지를 삽입합니다.
+		•ChatGPTEventTrigger: 이벤트를 수신하고 Salesforce에 채팅 메시지를 삽입합니다.
 	3.	Lightning Web Components
-		•	ChatGPTComponent: 메시지 표시 및 사용자 입력을 처리하는 채팅 인터페이스의 주요 구성 요소입니다.
+		•ChatGPTComponent: 메시지 표시 및 사용자 입력을 처리하는 채팅 인터페이스의 주요 구성 요소입니다.
 	4.	Salesforce 커스텀 객체
-		•	InboundChat__c: 수신 및 발신 채팅 메시지를 저장하는 커스텀 객체입니다.
+		•InboundChat__c: 수신 및 발신 채팅 메시지를 저장하는 커스텀 객체입니다.
 	5.	Salesforce 이벤트 플랫폼
-		•	Platform Event: 채팅 메시지 이벤트를 처리하고 비동기적으로 메시지를 전달합니다.
+		•Platform Event: 채팅 메시지 이벤트를 처리하고 비동기적으로 메시지를 전달합니다.
