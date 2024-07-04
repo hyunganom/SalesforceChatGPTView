@@ -36,3 +36,10 @@
 		•InboundChat__c: 수신 및 발신 채팅 메시지를 저장하는 커스텀 객체입니다.
 	5.	Salesforce 이벤트 플랫폼
 		•Platform Event: 채팅 메시지 이벤트를 처리하고 비동기적으로 메시지를 전달합니다.
+## 화면 UI/UX
+
+![스크린샷 2024-07-03 오전 9 34 40](https://github.com/hyunganom/salesforce-middleware-server/assets/104957944/a427f208-55b1-4c74-bb68-ae671df8ca07)
+
+	1.	ChatGPT로 사용자의 메시지를 전송하고, 주기적으로 메시지를 새로고침하여 실시간 채팅을 구현.
+	2.	메시지 전송 후 스크롤을 최신 메시지로 이동.
+	3.	에러 발생 시 토스트 알림을 통해 사용자에게 알림.
