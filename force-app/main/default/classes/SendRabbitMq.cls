@@ -3,9 +3,9 @@ public with sharing class SendRabbitMq {
 
     @future(callout=true)
     public static void sendToRabbitMq(String payload) {
-        String rabbitMqUrl = 'https://3c3f-115-92-191-108.ngrok-free.app/api/exchanges/%2f/x.api/publish';
-        String username = 'guest';
-        String password = 'guest';
+        String rabbitMqUrl = 'http://3.34.191.102:8080/api/exchanges/%2f/x.api/publish';
+        String username = 'new_user';
+        String password = '1234';
 
         Map<String, Object> message = new Map<String, Object>();
         message.put('properties', new Map<String, Object>());

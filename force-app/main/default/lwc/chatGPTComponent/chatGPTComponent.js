@@ -61,7 +61,6 @@ export default class ChatGPTComponent extends LightningElement {
                             variant: 'success',
                         })
                     );
-                    // 메세지를 보낸 후 데이터를 새로 고침
                     refreshApex(this.wiredChatMessagesResult);
                 })
                 .catch(error => {

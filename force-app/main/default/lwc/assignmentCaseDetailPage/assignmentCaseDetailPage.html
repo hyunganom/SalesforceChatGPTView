@@ -1,0 +1,14 @@
+<template>
+    <lightning-card
+        variant="narrow"
+        icon-name="standard:Account"
+        title="Custom detail view">
+        <lightning-record-form
+            record-id={recordId}
+            object-api-name="AssignmentCase__c"
+            layout-type="Full"
+            columns="2"
+            mode="view">
+        </lightning-record-form>
+    </lightning-card>
+</template>

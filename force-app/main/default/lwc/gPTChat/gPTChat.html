@@ -1,0 +1,20 @@
+<template>
+    <section role="log" class="slds-chat">
+        <ul class="slds-chat-list">
+            <template for:each={messages} for:item="message">
+                <li key={message.id} class={messageCssClass}>
+                    <div class="slds-chat-message">
+                        <div class="slds-chat-message__body">
+                            <div class={messageTextCssClass}>
+                                <span>{message.text}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </section>
+    <input type="text" class="slds-input" placeholder="Type your message..." 
+           onkeypress={handleKeyPress} value={messageInput} />
+    <button class="slds-button slds-button_brand" onclick={sendMessage}>Send</button>
+</template>
