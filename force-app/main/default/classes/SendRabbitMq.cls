@@ -14,7 +14,7 @@ public with sharing class SendRabbitMq {
 
             handleResponse(response);
         } catch (Exception e) {
-            System.debug('Error sending message to RabbitMQ: ' + e.getMessage());
+            System.debug('RabbitMQ 메시지 보내기 실패: ' + e.getMessage());
         }
     }
 
@@ -46,9 +46,9 @@ public with sharing class SendRabbitMq {
 
     private static void handleResponse(HttpResponse response) {
         if (response.getStatusCode() != 200) {
-            System.debug('RabbitMQ request failed with status code: ' + response.getStatusCode() + ' and message: ' + response.getStatus());
+            System.debug('RabbitMQ request 실패 및 응답 코드: ' + response.getStatusCode() + ' 그리고 메시지: ' + response.getStatus());
         } else {
-            System.debug('RabbitMQ response: ' + response.getBody());
+            System.debug('RabbitMQ 응답: ' + response.getBody());
         }
     }
 }
