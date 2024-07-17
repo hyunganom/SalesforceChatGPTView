@@ -5,12 +5,12 @@ public with sharing class SendRabbitMq {
     private static final String USERNAME = 'new_user';
     private static final String PASSWORD = '1234';
 
-    @future(callout=true)
+    @future(callout=true) // 비동기적으로 실행하며, 외부 서비스에 대한 callout을 허용
     public static void sendToRabbitMq(String payload) {
         try {
-            HttpRequest request = createHttpRequest(payload);
-            Http http = new Http();
-            HttpResponse response = http.send(request);
+            HttpRequest request = createHttpRequest(payload); // 생성된 HTTP 요청을 보낸다.
+            Http http = new Http(); // 인스턴스를 사용하여 요청
+            HttpResponse response = http.send(request); //응답값 처리
 
             handleResponse(response);
         } catch (Exception e) {
@@ -19,13 +19,13 @@ public with sharing class SendRabbitMq {
     }
 
     private static HttpRequest createHttpRequest(String payload) {
-        String jsonMessage = createJsonMessage(payload);
+        String jsonMessage = createJsonMessage(payload); //payload를 JSON문자열로 형식화 한다.
 
-        HttpRequest request = new HttpRequest();
-        request.setEndpoint(RABBITMQ_URL);
-        request.setMethod('POST');
-        request.setHeader('Authorization', createAuthHeader());
-        request.setHeader('Content-Type', 'application/json');
+        HttpRequest request = new HttpRequest(); //HTTP 요청 인스턴스화
+        request.setEndpoint(RABBITMQ_URL); // Rabbit MQ의 엔드포인트로 URL 지정
+        request.setMethod('POST'); //요청 메서드를 POST
+        request.setHeader('Authorization', createAuthHeader()); //헤더 유형을 추가
+        request.setHeader('Content-Type', 'application/json'); //요청 본문을 JSON 메세지로 설정 (JSON 말고 XML방법도 있음)
         request.setBody(jsonMessage);
 
         return request;
@@ -33,14 +33,14 @@ public with sharing class SendRabbitMq {
 
     private static String createJsonMessage(String payload) {
         Map<String, Object> message = new Map<String, Object>();
-        message.put('properties', new Map<String, Object>());
+        message.put('properties', new Map<String, Object>()); //키를 가진 맵을 구성
         message.put('routing_key', '');
         message.put('payload', payload);
         message.put('payload_encoding', 'string');
         return JSON.serialize(message);
     }
 
-    private static String createAuthHeader() {
+    private static String createAuthHeader() { //Base64로 인코딩된 인증 헤더
         return 'Basic ' + EncodingUtil.base64Encode(Blob.valueOf(USERNAME + ':' + PASSWORD));
     }
 
