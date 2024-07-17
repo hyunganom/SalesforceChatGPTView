@@ -1,7 +1,7 @@
 public with sharing class SendRabbitMq {
     private String outboundChatId;
 
-    private static final String RABBITMQ_URL = 'http://3.34.191.102:8080/api/exchanges/%2f/x.api/publish';
+    private static final String RABBITMQ_URL = 'http://52.79.166.146:8080/api/exchanges/%2f/x.api/publish';
     private static final String USERNAME = 'new_user';
     private static final String PASSWORD = '1234';
 
